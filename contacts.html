@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація</title>
+    
+    <style>
+        body {
+            font-family: 'Dancing Script', sans-serif;
+            background-color: #FED0C2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #7B73A9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #e3defc;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            border: none;
+            background-color: #FFBCC5;
+            color: #7a454c;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (username === "" || password === "" || confirmPassword === "") {
+                alert("Будь ласка, заповніть усі поля!");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Паролі не співпадають!");
+                return false;
+            }
+
+            alert("Реєстрація успішна!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+    <h1>Реєстрація</h1>
+    <a href="login.html" style="position: absolute; top: 20px; right: 20px; color: #ffffff; text-decoration: none;">Увійти</a>
+    <form onsubmit="return validateForm()">
+        <label for="username">Логін:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirmPassword">Підтвердження паролю:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+        <input type="submit" value="Зареєструватися">
+    </form>
+</div>
+</body>
+</html>
